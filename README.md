@@ -2,7 +2,7 @@
 Repozytorium zawiera pliki użyte do konfiguracji
 maszyny wirtualnej z zainstalowanym Jupyterem.
 Zainstalowany system to Arch Linux (dokładniej Antergos bez GUI).
-Wybór na padł na Arch Linuksa ze względu na system wydań (rolling release)
+Wybór padł na Arch Linuksa ze względu na system wydań (rolling release)
 i najnowszą wersję SageMath w repozytorium.
 
 Typ karty sieciowej w programie VirtualBox to `bridged`.
@@ -27,7 +27,8 @@ $ ijsinstall
 ```
 
 ## Działanie
-Zgodnie z instrukcjami z [ArchWiki](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console) ustawione jest automatyczne logowanie do `tty1`.
+Zgodnie z instrukcjami z [ArchWiki](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console)
+ustawione jest automatyczne logowanie do `tty1`.
 Użytkownik musi nazywać się `admin`.
 
 Do bliku `.bashrc` dodane są dwie instrukcje:
@@ -35,9 +36,11 @@ Do bliku `.bashrc` dodane są dwie instrukcje:
 export PASS=HASŁO_ROOTA
 ./run.sh
 ```
-Dzięki temu możliwa jest pełna automatyzacja zadań administracyjnych (`echo $PASS | su -c 'KOMENDY'`).
+Dzięki temu możliwa jest pełna automatyzacja zadań administracyjnych
+(`echo $PASS | su -c 'KOMENDY'`).
 
-Skrypt `run.sh` sprawdza, czy w folderze `/home/admin` istnieje już folder `.juplock`.
+Skrypt `run.sh` sprawdza, czy w folderze `/home/admin`
+istnieje już folder `.juplock`.
 Jeśli tak, przerywa pracę. Dzięki temu mamy pewność, że Jupyter nie zostanie
 równolegle uruchomiony kilka razy.
 
