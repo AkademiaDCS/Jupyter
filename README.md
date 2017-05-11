@@ -58,6 +58,18 @@ uruchomiona jest usługa `jup.service`.
 Wykonuje ona skrypt `.lock_remove` z katalogu `/home/admin`
 po każdym uruchomieniu systemu, ale przed logowaniem.
 
+## Konfiguracja Jupytera
+```
+$ jupyter notebook --generate-config
+```
+Ta komenda powinna stworzyć plik `~/.jupyter/jupyter_notebook_config.py`.
+
+Trzeba w nim dodać następujące linijki:
+```python
+c.NotebookApp.ip = '*'
+c.NotebookApp.token = ''
+```
+
 ## Użycie
 Po uruchomieniu systemu pokazuje się okienko z informacją o adresie IP
 w sieci lokalnej.
