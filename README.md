@@ -1,18 +1,33 @@
 # Jupyter
 Repozytorium zawiera pliki użyte do konfiguracji
 maszyny wirtualnej z zainstalowanym Jupyterem.
-Zainstalowany system to Arch Linux (dokładniej Antergos bez GUI).
+Zainstalowany system to Arch Linux.
 Wybór padł na Arch Linuksa ze względu na system wydań (rolling release)
 i najnowszą wersję SageMath w repozytorium.
 
 Typ karty sieciowej w programie VirtualBox to `bridged`.
 
+Szybka instalacja
+---
+Należy zainstalować system i utworzyć użytkownika `admin`.
+Następnie jako `admin` trzeba sklonować repozytorium do dowolnego katalogu
+i uruchomić instalator (wymagany pakiet `python-pythondialog`):
+```
+python3 install.py
+```
+
+### Aktualizacja komponentów
+Należy wejść do katalogu, w którym znajduje się katalog z plikami instalacyjnymi,
+zsynchronizować repozytorium (`git pull`) i uruchomić instalator.
+W menu znajduje się opcja `Aktualizacja komponentów`.
+
+Ręczna instalacja
+---
+
 ## Pakiety
-`jupyter`, `sagemath`, `sage-notebook`, `sagemath-jupyter`,
+`jupyter`, `sagemath`, `sagemath-jupyter`,
 `jupyter-widgetsnbextension`, `python-pythondialog`, `octave`,
 `python-pip`, `nodejs`, `npm`.
-
-`openssh` i `sshfs` do konfiguracji.
 
 `octave_kernel` przez `pip`.
 ```
@@ -28,12 +43,15 @@ $ ijsinstall
 
 ## Działanie
 Zgodnie z instrukcjami z [ArchWiki](https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console)
-ustawione jest automatyczne logowanie do `tty1`.
+ustawić należy automatyczne logowanie do `tty1`.
 Użytkownik musi nazywać się `admin`.
 
-Do bliku `.bashrc` dodane są dwie instrukcje:
+Do bliku `.bashrc` dodać należy następujące instrukcje:
 ```bash
 export PASS=HASŁO_ROOTA
+export PYTHONWARNINGS="ignore"
+setfont lat2-16 -m 8859-2
+echo $PASS | su -c "setterm -blank 0 -powerdown 0"
 ./run.sh
 ```
 Dzięki temu możliwa jest pełna automatyzacja zadań administracyjnych
@@ -68,6 +86,8 @@ Trzeba w nim dodać następujące linijki:
 ```python
 c.NotebookApp.ip = '*'
 c.NotebookApp.token = ''
+c.NotebookApp.port = 8888
+c.NotebookApp.notebook_dir = '/home/admin/notebooks' # Wcześniej należy utworzyć ten folder
 ```
 
 ## Użycie
