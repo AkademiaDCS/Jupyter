@@ -27,7 +27,7 @@ class Installer:
             stderr=subprocess.DEVNULL)
 
     def menu(self) -> None:
-        tag, code = self.dialog.menu('Wybierz czynność', choices=[
+        code, tag = self.dialog.menu('Wybierz czynność', choices=[
             ('(1)', 'Instalacja'),
             ('(2)', 'Aktualizacja komponentów')
         ])
@@ -41,7 +41,7 @@ class Installer:
                 self.bashrc()
                 self.install_packages()
                 self.jupyter()
-            elif tag == '(1)':
+            elif tag == '(2)':
                 self.ask_pass()
                 self.copy_components()
 
