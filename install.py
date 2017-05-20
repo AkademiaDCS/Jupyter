@@ -117,7 +117,7 @@ class Installer:
 
         self.dialog.infobox('Trwa instalacja wymaganych pakietów...')
         ret += self.call(
-            'pacman -Sy --noconfirm && pacman -S %s' % join_list(pacman_pkgs),
+            'pacman -Sy --noconfirm && pacman --noconfirm -S %s' % join_list(pacman_pkgs),
             sudo=True)
         ret += self.call('npm install -g %s' % join_list(npm_pkgs), sudo=True)
         ret += self.call('pip install %s' % join_list(pip_pkgs), sudo=True)
