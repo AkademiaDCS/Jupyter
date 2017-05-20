@@ -24,7 +24,8 @@ class Installer:
         return subprocess.call(
             cmd,
             stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL)
+            stderr=subprocess.DEVNULL,
+            shell=True)
 
     def menu(self) -> None:
         code, tag = self.dialog.menu('Wybierz czynność', choices=[
