@@ -55,6 +55,7 @@ class Installer:
         self.call(
             'cp -f jup.service /etc/systemd/system && systemctl enable jup',
             sudo=True)
+        self.call('mkdir /etc/systemd/system/getty@tty1.service.d/', sudo=True)
         self.call(
             'cp -f override.conf /etc/systemd/system/getty@tty1.service.d/',
             sudo=True
@@ -62,6 +63,7 @@ class Installer:
         self.call('cp -f .lock_remove /home/admin')
         self.call('cp -f jup.sh /home/admin')
         self.call('cp -f run.sh /home/admin')
+        self.call('cp -f panel.py /home/admin')
 
     def ask_pass(self):
         code, password = self.dialog.passwordbox('Podaj hasło roota')
