@@ -27,7 +27,7 @@ Ręczna instalacja
 ## Pakiety
 `jupyter`, `sagemath`, `sagemath-jupyter`,
 `jupyter-widgetsnbextension`, `python-pythondialog`, `octave`,
-`python-pip`, `nodejs`, `npm`.
+`python-pip`, `nodejs`, `npm`, `jmol`.
 
 `octave_kernel` przez `pip`.
 ```
@@ -95,7 +95,7 @@ Po uruchomieniu systemu pokazuje się okienko z informacją o adresie IP
 w sieci lokalnej.
 ![W przeglądarce należy wpisać...](img/welcome.png)
 
-Po wciśnięciu przycisku ENTER pokazuje się proste menu
+Po wciśnięciu przycisku <kbd>ENTER</kbd> pokazuje się proste menu
 (menu jest idiotoodporne, więc przycisk `Anuluj` nic nie robi).
 ![Wybierz czynność...](img/menu.png)
 

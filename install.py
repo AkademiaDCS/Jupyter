@@ -106,7 +106,8 @@ class Installer:
             'octave',
             'python-pip',
             'nodejs',
-            'npm'
+            'npm',
+            'jmol'
         ]
 
         pip_pkgs = [
