@@ -27,7 +27,8 @@ Ręczna instalacja
 ## Pakiety
 `jupyter`, `sagemath`, `sagemath-jupyter`,
 `jupyter-widgetsnbextension`, `python-pythondialog`, `octave`,
-`python-pip`, `nodejs`, `npm`, `jmol`.
+`python-pip`, `nodejs`, `npm`, `jmol`, `sage-notebook`, `sage-notebook-exporter`,
+`sagemath-src`.
 
 `octave_kernel` przez `pip`.
 ```
