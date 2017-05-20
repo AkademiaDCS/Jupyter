@@ -72,6 +72,7 @@ class Panel:
         silent_call('npm update -g')
         self.dialog.gauge_update(75)
         silent_call('pip install --upgrade octave_kernel')
+        silent_call('pip install --upgrade jupyter_contrib_nbextensions')
         self.dialog.msgbox(
             'Aktualizacja zakończona. Zalecany jest restart systemu.'
         )

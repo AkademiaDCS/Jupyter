@@ -86,6 +86,7 @@ class Installer:
     def jupyter(self) -> None:
         self.call('mkdir /home/admin/notebooks')
         self.call('(cd /home/admin && jupyter notebook --generate-config)')
+        self.call('jupyter contrib nbextension install --system', sudo=True)
         with open('/home/admin/.jupyter/jupyter_notebook_config.py', 'a') as jnc:
             jnc.writelines([
                 'c.NotebookApp.ip = "*" \n',
@@ -109,7 +110,8 @@ class Installer:
         ]
 
         pip_pkgs = [
-            'octave_kernel'
+            'octave_kernel',
+            'jupyter_contrib_nbextensions'
         ]
 
         npm_pkgs = [
