@@ -42,6 +42,7 @@ class Installer:
                 self.bashrc()
                 self.install_packages()
                 self.jupyter()
+                self.goodbye()
             elif tag == '(2)':
                 self.ask_pass()
                 self.copy_components()
