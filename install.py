@@ -73,22 +73,22 @@ class Installer:
     def bashrc(self) -> None:
         with open('/home/admin/.bashrc', 'a') as bashrc:
             bashrc.writelines([
-                'export PASS=%s' % self.password,
-                'export PYTHONWARNINGS="ignore"',
-                'setfont lat2-16 -m 8859-2',
-                'echo $PASS | su -c "setterm -blank 0 -powerdown 0"',
-                './run.sh'
+                'export PASS=%s \n' % self.password,
+                'export PYTHONWARNINGS="ignore" \n',
+                'setfont lat2-16 -m 8859-2 \n',
+                'echo $PASS | su -c "setterm -blank 0 -powerdown 0" \n',
+                './run.sh \n'
             ])
 
     def jupyter(self) -> None:
         self.call('mkdir /home/admin/notebooks')
         self.call('(cd /home/admin && jupyter notebook --generate-config)')
-        with open('/home/admin/.jupyter/jupyter_notebook_config.py') as jnc:
+        with open('/home/admin/.jupyter/jupyter_notebook_config.py', 'a') as jnc:
             jnc.writelines([
-                'c.NotebookApp.ip = "*"',
-                'c.NotebookApp.token = ""',
-                'c.NotebookApp.port = 8888',
-                'c.NotebookApp.notebook_dir = "/home/admin/notebooks"'
+                'c.NotebookApp.ip = "*" \n',
+                'c.NotebookApp.token = "" \n',
+                'c.NotebookApp.port = 8888 \n',
+                'c.NotebookApp.notebook_dir = "/home/admin/notebooks" \n'
             ])
 
 
