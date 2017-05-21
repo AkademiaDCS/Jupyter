@@ -27,13 +27,25 @@ class Panel:
         self.dialog.set_background_title('Administracja')
         self.help_me()
 
+    def latex(self) -> None:
+        self.dialog.infobox('Trwa instalacja pakietów texlive...')
+        ret = silent_call(
+            'pacman -Sy --noconfirm && pacman -S --noconfirm texlive-most'
+            )
+        if ret != 0:
+            self.dialog.msgbox('Nie udało się zainstalować pakietów texlive.')
+        else:
+            self.dialog.msgbox('Pomyślnie zainstalowano pakiety texlive.')
+            self.menu()
+
     def menu(self) -> None:
         code, tag = self.dialog.menu(
             "Wybierz czynność",
             choices=[
                 ("(1)", "Jak uruchomić program?"),
                 ("(2)", "Wykonaj aktualizację systemu"),
-                ("(3)", "Wyłącz")
+                ("(3)", "Wyłącz"),
+                ("(4)", "Zainstaluj TeXLive")
             ]
         )
         if code == self.dialog.OK:
@@ -43,6 +55,8 @@ class Panel:
                 self.update()
             elif tag == "(3)":
                 self.shutdown()
+            elif tag == "(4)":
+                self.latex()
         else:
             self.menu()
 

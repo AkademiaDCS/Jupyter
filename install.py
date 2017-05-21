@@ -134,6 +134,8 @@ class Installer:
         self.call('python -m octave_kernel.install', sudo=True)
         self.call('ijsinstall')
 
+        self.call('jupyter nbextension enable --py --system widgetsnbextension', sudo=True)
+
         if ret > 0:
             self.dialog.msgbox('Nie udało się zainstalować niezbędnych pakietów.')
             self.menu()
